@@ -93,3 +93,8 @@ plt.savefig("feature_importance.png")
 print("Feature importance saved → feature_importance.png")
 
 print("\n✅ Training complete. Checkpoint: RandomForest_seed42_depth6.pkl")
+
+
+import joblib
+joblib.dump(model, "model.pkl")
+print("Model saved → model.pkl")

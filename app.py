@@ -5,6 +5,7 @@ import numpy as np
 
 # ── Load trained model ───────────────────────────────────────────
 model = joblib.load("model.pkl")
+scaler = joblib.load("scaler.pkl")
 
 # ── Define app ───────────────────────────────────────────────────
 app = FastAPI(title="Heart Disease Classifier API")
@@ -38,6 +39,7 @@ def predict(patient: PatientData):
         patient.chol, patient.fbs, patient.restecg, patient.thalach,
         patient.exang, patient.oldpeak, patient.slope, patient.ca, patient.thal
     ]])
+    features = scaler.transform(features)
 
     prediction = model.predict(features)[0]
     probability = model.predict_proba(features)[0][1]

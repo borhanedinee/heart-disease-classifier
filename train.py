@@ -97,4 +97,6 @@ print("\n✅ Training complete. Checkpoint: RandomForest_seed42_depth6.pkl")
 
 import joblib
 joblib.dump(model, "model.pkl")
+joblib.dump(scaler, "scaler.pkl")
+print("Scaler saved → scaler.pkl")
 print("Model saved → model.pkl")
